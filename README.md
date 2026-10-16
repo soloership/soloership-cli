@@ -2,7 +2,15 @@
 
 Package name: `create-soloership`. Independent of the SoloerShip template and sales site. Node.js 22.12+, Git (GitHub source only), and the template's pinned pnpm version are required. There are no runtime npm dependencies.
 
-## Local use before publication
+## Create a project
+
+```sh
+pnpm create soloership my-project
+```
+
+The default template repository is private. Accept repository access and configure Git authentication before running this command.
+
+## Local template
 
 ```sh
 node /path/to/soloership-cli/bin/create-soloership.mjs my-project \
@@ -45,18 +53,12 @@ The smoke test creates a temporary project, installs dependencies, initializes l
 
 ## Release
 
-Before npm publication, verify private-repository access with an entitled test account, choose the CLI license, and confirm npm package-name ownership. Review `npm pack --dry-run`; the npm package contains the CLI only, never template source or local files. Publish only when explicitly authorized.
+Run `npm run check`, the template smoke test, and `npm pack --dry-run` before publishing. The npm package contains the CLI only. Publish with `npm publish --access public --registry=https://registry.npmjs.org/` using an authorized npm account.
 
-After `create-soloership` is published, the intended user command is:
-
-```sh
-pnpm create soloership my-project
-```
-
-The command is not available from this project on the registry yet. GitHub organization naming does not require changing the unscoped npm package name; switching to a scoped npm name changes the create command.
+The CLI retains its `UNLICENSED` designation; public npm distribution does not grant an open-source license or access to the private template.
 
 ## Design review
 
 The CLI has one argument entry point and one source/export module. It delegates service configuration to the template. No second setup wizard, licensing service, plugin framework, vendored template or automatic update system is included.
 
-Verified locally: five tests pass, including actual Git tag checkout through an isolated local transport, existing-directory protection and secret/runtime exclusion. The full smoke against the current SoloerShip template passed installation, setup, D1 migration, configuration diagnostics, typecheck, build, secret scan and fresh-project administrator login regression. `npm pack --dry-run` contains four files (CLI entry, source module, package manifest and README). Real private GitHub authorization and npm publication remain unverified/unperformed.
+Verified locally: five tests pass, including actual Git tag checkout through an isolated local transport, existing-directory protection and secret/runtime exclusion. The full smoke against the current SoloerShip template passed installation, setup, D1 migration, configuration diagnostics, typecheck, build, secret scan and fresh-project administrator login regression. `npm pack --dry-run` contains four files (CLI entry, source module, package manifest and README). Private GitHub downloads use the caller’s existing repository access. Registry publication is verified separately from local smoke tests.
