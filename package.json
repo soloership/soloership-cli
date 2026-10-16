@@ -1,0 +1,26 @@
+{
+  "name": "create-soloership",
+  "version": "0.1.0",
+  "description": "Create a SoloerShip project from a local template or GitHub repository",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "bin": {
+    "create-soloership": "bin/create-soloership.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/create-soloership.mjs && node --check src/create.mjs && node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soloership/soloership-cli.git"
+  }
+}
