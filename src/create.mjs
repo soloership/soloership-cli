@@ -10,7 +10,7 @@ const roots = new Set([
   '.gitignore', '.dev.vars.example', 'package.json', 'pnpm-lock.yaml',
   'soloership.config.json', 'site.config.ts', 'tsconfig.json', 'vite.config.ts',
   'vitest.config.ts', 'playwright.config.ts', 'playwright.presets.config.ts',
-  'worker-configuration.d.ts', 'README.md', 'AGENTS.md', 'PRODUCT.md', 'DESIGN.md',
+  'worker-configuration.d.ts', 'README.md', 'README.zh-CN.md', 'AGENTS.md', 'PRODUCT.md', 'DESIGN.md',
   'LICENSE', 'LICENSE.md', 'NOTICE',
 ]);
 const excluded = new Set(['node_modules', 'dist', '.git', '.wrangler', '.tanstack', '.setup-backup', 'test-results', 'playwright-report', '.DS_Store']);

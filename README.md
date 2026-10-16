@@ -1,5 +1,7 @@
 # SoloerShip CLI
 
+English | [简体中文](README.zh-CN.md)
+
 Package name: `create-soloership`. Independent of the SoloerShip template and sales site. Node.js 22.12+, Git (GitHub source only), and the template's pinned pnpm version are required. There are no runtime npm dependencies.
 
 ## Create a project
